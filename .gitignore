@@ -1,0 +1,18 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+
+# Static files
+/staticfiles/
+/static/
+
+# Line endings
+* text=auto eol=lf
+
+# Virtual Environment
+venv/
+env/

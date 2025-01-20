@@ -4,14 +4,20 @@
 {% block title %}Quiz Application{% endblock %}
 
 {% block content %}
-<section>
+<div class="quiz-container">
     <h2>Available Quizzes</h2>
-    <ul>
-        {% for quiz in quizzes %}
-            <li>
-                <a href="{% url 'quiz:quiz_detail' quiz.id %}">{{ quiz.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-</section>
+    {% if quizzes %}
+        <ul class="quiz-list">
+            {% for quiz in quizzes %}
+                <li class="quiz-item">
+                    <h3>{{ quiz.title }}</h3>
+                    <p>{{ quiz.description }}</p>
+                    <a href="{% url 'quiz:quiz_detail' quiz.id %}" class="quiz-button">Start Quiz</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No quizzes available.</p>
+    {% endif %}
+</div>
 {% endblock %}
