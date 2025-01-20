@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Quiz, Question
 
 def index(request):
@@ -18,5 +18,9 @@ def submit_quiz(request, quiz_id):
             user_answer = request.POST.get(str(question.id))
             if user_answer == question.answer:
                 score += 1
-        return render(request, 'quiz/results.html', {'quiz': quiz, 'score': score})
+        return render(request, 'quiz/results.html', {
+            'quiz': quiz,
+            'score': score,
+            'total': questions.count()
+        })
     return redirect('quiz:quiz_detail', quiz_id=quiz_id)
