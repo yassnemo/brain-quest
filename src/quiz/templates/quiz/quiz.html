@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>{{ quiz.title }}</h1>
+        <form id="quiz-form" method="post">
+            {% csrf_token %}
+            {% for question in quiz.questions %}
+                <div class="question">
+                    <h2>{{ question.text }}</h2>
+                    {% for choice in question.choices %}
+                        <label>
+                            <input type="radio" name="question_{{ question.id }}" value="{{ choice.id }}">
+                            {{ choice.text }}
+                        </label>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit">Submit Quiz</button>
+        </form>
+    </div>
+    <script src="{% static 'js/quiz.js' %}"></script>
+</body>
+</html>

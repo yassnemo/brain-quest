@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Results</h1>
+        <p>Your score: {{ score }} out of {{ total }}</p>
+        <p>{{ feedback }}</p>
+        <a href="{% url 'quiz:index' %}">Back to Quiz Index</a>
+    </div>
+</body>
+</html>

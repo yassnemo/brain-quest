@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Quiz Application</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Available Quizzes</h2>
+            <ul>
+                {% for quiz in quizzes %}
+                    <li>
+                        <a href="{% url 'quiz:quiz_detail' quiz.id %}">{{ quiz.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+    <script src="{% static 'js/quiz.js' %}"></script>
+</body>
+</html>
