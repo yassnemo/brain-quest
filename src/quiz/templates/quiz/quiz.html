@@ -1,27 +1,27 @@
 {% extends 'quiz/base.html' %}
 {% load static %}
 
-{% block title %}{{ quiz.title }}{% endblock %}
-
 {% block content %}
 <div class="quiz-container">
     <h1>{{ quiz.title }}</h1>
-    <p class="quiz-description">{{ quiz.description }}</p>
+    <p class="progress">{{ progress }}</p>
     
-    <form method="post" action="{% url 'quiz:submit_quiz' quiz.id %}">
-        {% csrf_token %}
-        {% for question in quiz.question_set.all %}
-            <div class="question-card">
-                <h3>{{ question.question_text }}</h3>
-                <div class="answer-input">
-                    <input type="text" 
-                           name="answer_{{ question.id }}" 
-                           placeholder="Enter your answer"
+    <div class="question-card">
+        <h2>{{ question.question_text }}</h2>
+        <form method="post" action="{% url 'quiz:submit_answer' quiz.id %}">
+            {% csrf_token %}
+            {% for answer in answers %}
+                <div class="answer-option">
+                    <input type="radio" 
+                           name="answer" 
+                           id="answer_{{ answer.id }}"
+                           value="{{ answer.id }}"
                            required>
+                    <label for="answer_{{ answer.id }}">{{ answer.answer_text }}</label>
                 </div>
-            </div>
-        {% endfor %}
-        <button type="submit" class="submit-button">Submit Quiz</button>
-    </form>
+            {% endfor %}
+            <button type="submit" class="submit-button">Next Question</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
