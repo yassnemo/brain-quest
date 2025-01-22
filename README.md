@@ -1,9 +1,7 @@
-# README.md
 
-# Quiz Application
+# BrainQuest
 
-## Description
-This application presents quizzes to users, tracks scores, and provides feedback.
+An application that presents quizzes to users, tracks scores, and provides feedback.
 
 ## Technologies
 - Django
@@ -52,5 +50,5 @@ quiz-app
    ```
 
 ## Usage
-- Access the application in your web browser at `http://127.0.0.1:8000/`.
+- Access the application at `http://127.0.0.1:8000/`.
 - Follow the prompts to take quizzes and view results.
