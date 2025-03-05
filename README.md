@@ -23,4 +23,4 @@ An application that presents quizzes to users, tracks scores, and provides feedb
 
 ## Usage
 - You can access the application at `http://127.0.0.1:8000/`.
-- Follow the prompts to take quizzes and view your results.
+- Follow the prompts to take quizzes and view results.
